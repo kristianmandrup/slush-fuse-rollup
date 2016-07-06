@@ -1,7 +1,5 @@
 # Slush-fuse-babel [![Build Status](https://secure.travis-ci.org/kristianmandrup/slush-fuse-rollup.png?branch=master)](https://travis-ci.org/kristianmandrup/slush-fuse-rollup) [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-fuse-rollup.png)](http://badges.enytc.com/for/npm/slush-fuse-rollup)
 
-# Create Fuse project with Babel
-
 ## Getting Started
 
 Install `slush-fuse-rollup` globally:
@@ -10,7 +8,12 @@ Install `slush-fuse-rollup` globally:
 $ npm install -g slush-fuse-rollup
 ```
 
-### Usage
+## Usage examples
+
+- Create app
+- Create component
+
+### Create App
 
 Create a new folder for your project:
 
@@ -23,7 +26,59 @@ Run the generator from within the new folder:
 ```bash
 $ cd my-fuse-app
 $ slush fuse-rollup
+
+$ What is the name of your app? my-app
+...
 ```
+
+The following file structure is then created:
+
+```bash
+
+js/
+    - app.js
+    - server.js
+
+App.unoproj
+Gulpfile.js
+MainView.ux
+package.json
+README.md
+```
+
+The files in `/js` are javascript files to be used by the app. The gulp task will compile the `/js` files to `/dist` on any modification.
+
+### Serving data
+
+The `app.js` file exports a `server` variable by default, which references the Object exported by `server.js`.
+
+You can call `server.api.getData()` to return data served to the app, such as from a remote server via a socket connection or HTTP requests etc.
+
+Hint: Customize the `server.api` Object to best suite your app!
+
+### Create Component
+
+```bash
+$ slush fuse-rollup:component
+$ What is the name of your component? BigPanel
+$ What is the description? A very big panel
+$ Does the component view have a model? yes
+```
+
+The following file structure is created
+
+```bash
+
+components/
+    - BigPanelView.ux
+    - BigPanelModel.js
+```
+
+The View will be auto-linked to the Model via:
+
+`<JavaScript File="../dist/components/BigPanelModel.js"/>`
+
+If you answer `no` to the last question, no model file will be created and the View will have no link to external javascript.
 
 ## Getting To Know Slush
 
