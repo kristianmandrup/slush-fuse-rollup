@@ -15,14 +15,14 @@ $ npm install -g slush-fuse-rollup
 Create a new folder for your project:
 
 ```bash
-$ mkdir my-app
+$ mkdir my-fuse-app
 ```
 
 Run the generator from within the new folder:
 
 ```bash
-$ cd my-slush-fuse-rollup
-$ slush fuse-babel
+$ cd my-fuse-app
+$ slush fuse-rollup
 ```
 
 ## Getting To Know Slush
