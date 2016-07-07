@@ -8,20 +8,54 @@ This [Fuse](https://www.fusetools.com/) project is configured with [Gulp](http:/
 4. Inside the project folder, run `npm install` to fetch dependencies.
 
 ## Watch and rollup app.js
-Run `gulp watch` to watch for changes to files in the `js` folder.
+Run `gulp watch` to watch for changes to files in the `/src` folder.
 When a change occurs, rollup and babel will run, and your transpiled, concatenated JS file will end up as `dist/app.js`. This will in turn trigger an update in the Fuse preview simulator if it's running.
 
-The entry point is `js/app.js`, which means that only this file will be able to export objects to fuse.
+The entry point is `dist/app.js`, which means that only this file will be able to export objects to fuse.
 
 ## Watch component model files
 
-Use `npm watch` to enable auto compile of component model files in `/components` to `dist/components`.
+Use `npm watch` to enable auto compilation of component model files in `/components` to `dist/components`.
+
+## Babel support
+
+The files in `/src` are the source files to be used by the app. The gulp task will compile the `/src` files to ES5 compatible javascript in `/dist` on any modification.
+
+- `gulp` (default) - compile ES6 via Babel
+- `gulp watch` - watch `/src` for changes and compile ES6 to ES5 in `/dist`
+
+### TypeScript
+TypeScript support has been added as per the [TypeScript Gulp guide](http://www.typescriptlang.org/docs/handbook/gulp.html)
+
+Start by making sure you have installed TypeScript and Gulp CLI globally
+
+`$ npm install -g typescript gulp-cli`
+
+TypeScript can then be used follows:
+- `gulp ts` - compile TypeScript from `/ts` to `/src`
+- `gulp watch-ts` - watch `/ts` for changes and compile to `/src`
+
+### Manual steps
+
+First rename `/src` folder to `/ts`
+
+`$ mv src ts`
+
+Rename `.js` files in new `/ts` folder to `.ts` (from [recursively change file extensions](http://stackoverflow.com/questions/21985492/recursively-change-file-extensions-in-bash))
+
+`$ find /ts -name '*.js' -exec rename .js .ts {} +`
+
+*TODO: This should be automated!*
+
+Using this approach you can mix and match javascript in `/src` with typescript files in `/ts` seamlessly. Note: Typescript can now also directly include `.js` files.
 
 ### Serving data
 
-The `app.js` file exports a `server` variable by default, which references the Object exported by `server.js`.
+The `app.js` file exports a `server` variable which references the Object exported by `server.js`.
 
-You can call `server.api.getData()` to return data served to the app, such as from a remote server via a socket connection or HTTP requests etc.
+You can call `server.api.getData()` to return data served to the app:
+- local fake/stub data
+- remote server data via a socket connection or HTTP request etc.
 
 Hint: Customize the `server.api` Object to best suite your app!
 
@@ -31,9 +65,12 @@ Hint: Customize the `server.api` Object to best suite your app!
 
 ## Install Fuse modules
 
-Use [fusepm](https://github.com/kristianmandrup/fusepm) to install fuse modules:
+Use [fusepm](https://github.com/kristianmandrup/fusepm) to install fuse modules (libraries):
 
-`$ fusepm install <module>`
+```bash
+$ fusepm list
+$ fusepm install <module>
+```
 
 ## License
 

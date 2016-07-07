@@ -35,7 +35,7 @@ The following file structure is then created:
 
 ```bash
 
-js/
+src/
     - app.js
     - server.js
 
@@ -46,7 +46,35 @@ package.json
 README.md
 ```
 
-The files in `/js` are javascript files to be used by the app. The gulp task will compile the `/js` files to `/dist` on any modification.
+The files in `/src` are the source files to be used by the app. The gulp task will compile the `/src` files to ES5 compatible javascript in `/dist` on any modification.
+
+- `gulp` (default) - compile ES6
+- `gulp watch` - watch `/src` for changes and compile ES6 to ES5 in `/dist`
+
+### TypeScript
+TypeScript support has been added as per the [TypeScript Gulp guide](http://www.typescriptlang.org/docs/handbook/gulp.html)
+
+Start by making sure you have installed TypeScript and Gulp CLI globally
+
+`$ npm install -g typescript gulp-cli`
+
+TypeScript can then be used follows:
+- `gulp ts` - compile TypeScript from `/ts` to `/src`
+- `gulp watch-ts` - watch `/ts` for changes and compile to `/src`
+
+### Manual steps
+
+First rename `/src` folder to `/ts`
+
+`$ mv src ts`
+
+Rename `.js` files in new `/ts` folder to `.ts` (from [recursively change file extensions](http://stackoverflow.com/questions/21985492/recursively-change-file-extensions-in-bash))
+
+`$ find /ts -name '*.js' -exec rename .js .ts {} +`
+
+*TODO: This should be automated!*
+
+Using this approach you can mix and match javascript in `/src` with typescript files in `/ts` seamlessly. Note: Typescript can now also directly include `.js` files.
 
 ### Serving data
 
