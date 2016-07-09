@@ -64,13 +64,13 @@ TypeScript can then be used follows:
 
 ### Manual steps
 
-First rename `/src` folder to `/ts`
+First rename `/src` folder to `/ts-src`
 
-`$ mv src ts`
+`$ mv src ts-src`
 
-Rename `.js` files in new `/ts` folder to `.ts` (from [recursively change file extensions](http://stackoverflow.com/questions/21985492/recursively-change-file-extensions-in-bash))
+Rename `.js` files in new `/ts-src` folder to `.ts`.
 
-`$ find /ts -name '*.js' -exec rename .js .ts {} +`
+`$ find ts-src/*.js -iname "*.js" -exec bash -c 'mv "$0" "${0%\.js}.ts"' {} \;`
 
 *TODO: This should be automated!*
 
@@ -149,4 +149,3 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
-
