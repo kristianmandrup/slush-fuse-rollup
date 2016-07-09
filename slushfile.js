@@ -8,7 +8,7 @@
 
 'use strict';
 
-require('app');
-require('component');
+require('./app');
+require('./component');
 
 

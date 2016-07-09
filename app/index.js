@@ -4,55 +4,25 @@ var gulp = require('gulp'),
     template = require('gulp-template'),
     rename = require('gulp-rename'),
     _ = require('underscore.string'),
-    inquirer = require('inquirer'),
-    path = require('path');
+    inquirer = require('inquirer');
 
-function format(string) {
-    var username = string.toLowerCase();
-    return username.replace(/\s/g, '');
-}
-
-var defaults = require('./defaults');
+var prompts = require('./prompts');
 
 gulp.task('default', function (done) {
-    var prompts = [{
-        name: 'appName',
-        message: 'What is the name of your app?',
-        default: defaults.appName
-    }, {
-        name: 'appDescription',
-        message: 'What is the description?'
-    }, {
-        name: 'appVersion',
-        message: 'What is the version of your app?',
-        default: '0.1.0'
-    }, {
-        name: 'authorName',
-        message: 'What is the author name?',
-        default: defaults.authorName
-    }, {
-        name: 'authorEmail',
-        message: 'What is the author email?',
-        default: defaults.authorEmail
-    }, {
-        name: 'userName',
-        message: 'What is the github username?',
-        default: defaults.userName
-    }, {
-        type: 'confirm',
-        name: 'moveon',
-        message: 'Continue?'
-    }];
+
     //Ask
     inquirer.prompt(prompts,
         function (answers) {
+            console.log('answers', answers);
             if (!answers.moveon) {
                 return done();
             }
+            answers.e = {};
             answers.appNameSlug = _.slugify(answers.appName);
             gulp.src(__dirname + '/templates/**')
                 .pipe(template(answers))
                 .pipe(rename(function (file) {
+                    console.log(file.basename);
                     if (file.basename[0] === '_') {
                         file.basename = '.' + file.basename.slice(1);
                     }

@@ -21,6 +21,10 @@ gulp.task('component', function (done) {
         type: 'confirm',
         message: 'Does the component view have a model?',
         default: true
+    }, {
+        type: 'confirm',
+        name: 'moveon',
+        message: 'Continue?'
     }];
 
     //Ask
@@ -29,11 +33,10 @@ gulp.task('component', function (done) {
             if (!answers.moveon) {
                 return done();
             }
-
             answers.className = _.classify(answers.name);
             gulp.src(__dirname + '/templates/**')
                 .pipe(template(answers))
-                .pipe(ignore.exclude(answers.viewModel))
+                // .pipe(ignore.exclude(answers.viewModel))
                 .pipe(rename(function (file) {
                     if (file.basename[0] === '_') {
                         file.basename = answers.className + file.basename.slice(1);

@@ -1,5 +1,5 @@
 # slush-fuse-rollup
-This [Fuse](https://www.fusetools.com/) project is configured with [Gulp](http://gulpjs.com/), [Rollup](http://rollupjs.org/) and [Babel](https://babeljs.io/) into your  workflow, allowing you to use ES2015+ featuresin your Fuse app.
+This [Fuse](https://www.fusetools.com/) project is configured with [Gulp](http://gulpjs.com/), [Rollup](http://rollupjs.org/) and [Babel](https://babeljs.io/) into your  workflow, allowing you to use ES2015+ features in your Fuse app.
 
 ## Prerequisites
 1. Install [Node.js and npm](https://nodejs.org/en/) if you haven't already.

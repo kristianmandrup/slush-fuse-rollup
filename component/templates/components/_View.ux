@@ -1,6 +1,4 @@
 <Panel ux:Class="Panel">
-  <% if (viewModel) { %>
-  <JavaScript File="../dist/components/<%= className %>.js" />
-  <% } %>
+  <% if (viewModel) { %><JavaScript File="<%= className %>.js" /><% } %>
   <Text Alignment="Center" Value="{ message }" />
 </Panel>
