@@ -1,4 +1,4 @@
-# slush-fuse-rollup
+# slush-xfuse
 This [Fuse](https://www.fusetools.com/) project is configured with [Gulp](http://gulpjs.com/), [Rollup](http://rollupjs.org/) and [Babel](https://babeljs.io/) into your  workflow, allowing you to use ES2015+ features in your Fuse app.
 
 ## Prerequisites
@@ -14,11 +14,9 @@ When a change occurs, rollup and babel will run, and your transpiled, concatenat
 The entry point is `dist/app.js`, which means that only this file will be able to export objects to fuse.
 
 ## Watch component model files
-
 Use `npm watch` to enable auto compilation of component model files in `/components` to `dist/components`.
 
 ## Babel support
-
 The files in `/src` are the source files to be used by the app. The gulp task will compile the `/src` files to ES5 compatible javascript in `/dist` on any modification.
 
 - `gulp` (default) - compile ES6 via Babel
@@ -36,7 +34,6 @@ TypeScript can then be used follows:
 - `gulp watch-ts` - watch `/ts` for changes and compile to `/src`
 
 ### Serving data
-
 The `app.js` file exports a `server` variable which references the Object exported by `server.js`.
 
 You can call `server.api.getData()` to return data served to the app:
@@ -46,8 +43,9 @@ You can call `server.api.getData()` to return data served to the app:
 Hint: Customize the `server.api` Object to best suite your app!
 
 ## Create components
+To create components for your app use the `component` generator.
 
-`$ slush fuse-rollup:component` to create components for your app.
+`$ slush xfuse:component` 
 
 ## Install Fuse modules
 

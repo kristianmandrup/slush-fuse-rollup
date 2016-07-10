@@ -1,4 +1,4 @@
-# Slush-fuse-babel [![Build Status](https://secure.travis-ci.org/kristianmandrup/slush-xfuse.png?branch=master)](https://travis-ci.org/kristianmandrup/slush-xfuse) [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-xfuse.png)](http://badges.enytc.com/for/npm/slush-xfuse)
+# slush-xfuse [![Build Status](https://secure.travis-ci.org/kristianmandrup/slush-xfuse.png?branch=master)](https://travis-ci.org/kristianmandrup/slush-xfuse) [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-xfuse.png)](http://badges.enytc.com/for/npm/slush-xfuse)
 
 ## Getting Started
 
@@ -100,6 +100,7 @@ Generates the following project files:
 ```
 
 ### Create Component
+To create components for your app.
 
 ```bash
 $ slush xfuse:component
