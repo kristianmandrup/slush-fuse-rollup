@@ -1,4 +1,4 @@
-# Contributing to slush-fuse-rollup
+# Contributing to slush-xfuse
 
 Please take a moment to review this document in order to make the contribution
 process easy and effective for everyone involved.
@@ -93,11 +93,11 @@ project:
 
    ```bash
    # Clone your fork of the repo into the current directory
-   git clone https://github.com/<your-username>/slush-fuse-rollup
+   git clone https://github.com/<your-username>/slush-xfuse
    # Navigate to the newly cloned directory
-   cd slush-slush-fuse-rollup
+   cd slush-xfuse
    # Assign the original repo to a remote called "upstream"
-   git remote add upstream https://github.com/kristianmandrup/slush-fuse-rollup
+   git remote add upstream https://github.com/kristianmandrup/slush-xfuse
    ```
 
 2. If you cloned a while ago, get the latest changes from upstream:

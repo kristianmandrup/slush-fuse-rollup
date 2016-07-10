@@ -1,11 +1,11 @@
-# Slush-fuse-babel [![Build Status](https://secure.travis-ci.org/kristianmandrup/slush-fuse-rollup.png?branch=master)](https://travis-ci.org/kristianmandrup/slush-fuse-rollup) [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-fuse-rollup.png)](http://badges.enytc.com/for/npm/slush-fuse-rollup)
+# Slush-fuse-babel [![Build Status](https://secure.travis-ci.org/kristianmandrup/slush-xfuse.png?branch=master)](https://travis-ci.org/kristianmandrup/slush-xfuse) [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-xfuse.png)](http://badges.enytc.com/for/npm/slush-xfuse)
 
 ## Getting Started
 
-Install `slush-fuse-rollup` globally:
+Install `slush-xfuse` globally:
 
 ```bash
-$ npm install -g slush-fuse-rollup
+$ npm install -g slush-xfuse
 ```
 
 ## Usage examples
@@ -26,25 +26,32 @@ Run the generator from within the new folder:
 
 ```bash
 $ cd my-fuse-app
-$ slush fuse-rollup
+$ slush xfuse
 
-$ What is the name of your app? my-app
+What is the name of your app? my-app
 ...
+Will you use TypeScript?
 ```
 
 The following file structure is then created:
 
 ```bash
-
 src/
-    - app.js
-    - server.js
-
+  - app.js
+  - server.js
 App.unoproj
 Gulpfile.js
-MainView.ux
+App.ux
 package.json
 README.md
+```
+
+If TypeScript was selected
+
+```bash
+ts-src/
+  - app.ts
+  - server.ts
 ```
 
 The files in `/src` are the source files to be used by the app. The gulp task will compile the `/src` files to ES5 compatible javascript in `/dist` on any modification.
@@ -77,11 +84,11 @@ Hint: Customize the `server.api` Object to best suite your app!
 
 ### Create Library
 You can extract pieces of your application as libraries that can be reused across different apps.
-Use the `fuse-rollup:library` generator to create a [fusepm](https://github.com/bolav/fusepm) compatible library.
+Use the `xfuse:library` generator to create a [fusepm](https://github.com/bolav/fusepm) compatible library.
 FusePM is a (community driven) package manager for Fuse.
 
 ```bash
-$ slush fuse-rollup:library
+$ slush xfuse:library
 $ What is the name of your library? BigPanel
 $ What is the description? A very big panel
 $ Does the library have a view? yes
@@ -95,7 +102,7 @@ Generates the following project files:
 ### Create Component
 
 ```bash
-$ slush fuse-rollup:component
+$ slush xfuse:component
 $ What is the name of your component? BigPanel
 $ What is the description? A very big panel
 $ Does the component view have a model? yes
@@ -126,10 +133,10 @@ To find out more about Slush, check out the [documentation](https://github.com/s
 
 ## Contributing
 
-See the [CONTRIBUTING Guidelines](https://github.com/kristianmandrup/slush-fuse-rollup/blob/master/CONTRIBUTING.md)
+See the [CONTRIBUTING Guidelines](https://github.com/kristianmandrup/slush-xfuse/blob/master/CONTRIBUTING.md)
 
 ## Support
-If you have any problem or suggestion please open an issue [here](https://github.com/kristianmandrup/slush-fuse-rollup/issues).
+If you have any problem or suggestion please open an issue [here](https://github.com/kristianmandrup/slush-xfuse/issues).
 
 ## License
 

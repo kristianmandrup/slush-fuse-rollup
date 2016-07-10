@@ -1,18 +1,18 @@
 {
-    "name": "slush-fuse-rollup",
+    "name": "slush-xfuse",
     "description": "Fuse project generator with Gulp, Rollup and Babel",
     "version": "0.1.1",
-    "homepage": "https://github.com/kristianmandrup/slush-fuse-rollup",
+    "homepage": "https://github.com/kristianmandrup/slush-xfuse",
     "author": {
         "name": "Kristian Mandrup",
         "email": "kmandrup@gmail.com"
     },
     "repository": {
         "type": "git",
-        "url": "git://github.com/kristianmandrup/slush-fuse-rollup.git"
+        "url": "git://github.com/kristianmandrup/slush-xfuse.git"
     },
     "bugs": {
-        "url": "https://github.com/kristianmandrup/slush-fuse-rollup/issues"
+        "url": "https://github.com/kristianmandrup/slush-xfuse/issues"
     },
     "license": "MIT",
     "main": "slushfile.js",
