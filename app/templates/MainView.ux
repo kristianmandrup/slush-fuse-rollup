@@ -1,7 +1,6 @@
 <App Theme="Basic">
-	<JavaScript File="dist/app.js" />
-	<Panel>
-		<Text Alignment="Center" Value="{message}" />
-	</Panel>
+  <JavaScript File="dist/app.js" />
+  <Panel>
+    <Text Alignment="Center" Value="{message}" />
+  </Panel>
 </App>
-

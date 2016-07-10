@@ -13,7 +13,6 @@ gulp.task('default', function (done) {
     //Ask
     inquirer.prompt(prompts,
         function (answers) {
-            console.log('answers', answers);
             if (!answers.moveon) {
                 return done();
             }
@@ -22,7 +21,6 @@ gulp.task('default', function (done) {
             gulp.src(__dirname + '/templates/**')
                 .pipe(template(answers))
                 .pipe(rename(function (file) {
-                    console.log(file.basename);
                     if (file.basename[0] === '_') {
                         file.basename = '.' + file.basename.slice(1);
                     }

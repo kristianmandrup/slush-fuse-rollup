@@ -35,20 +35,6 @@ TypeScript can then be used follows:
 - `gulp ts` - compile TypeScript from `/ts` to `/src`
 - `gulp watch-ts` - watch `/ts` for changes and compile to `/src`
 
-### Manual steps
-
-First rename `/src` folder to `/ts-src`
-
-`$ mv src ts-src`
-
-Rename `.js` files in new `/ts-src` folder to `.ts`.
-
-`$ find ts-src/*.js -iname "*.js" -exec bash -c 'mv "$0" "${0%\.js}.ts"' {} \;`
-
-*TODO: This should be automated!*
-
-Using this approach you can mix and match javascript in `/src` with typescript files in `/ts` seamlessly. Note: Typescript can now also directly include `.js` files.
-
 ### Serving data
 
 The `app.js` file exports a `server` variable which references the Object exported by `server.js`.
