@@ -11,6 +11,7 @@ $ npm install -g slush-fuse-rollup
 ## Usage examples
 
 - Create app
+- Create (fusepm) library
 - Create component
 
 ### Create App
@@ -83,6 +84,15 @@ The `app.js` file exports a `server` variable by default, which references the O
 You can call `server.api.getData()` to return data served to the app, such as from a remote server via a socket connection or HTTP requests etc.
 
 Hint: Customize the `server.api` Object to best suite your app!
+
+### Create Library
+
+```bash
+$ slush fuse-rollup:library
+$ What is the name of your library? BigPanel
+$ What is the description? A very big panel
+$ Does the library have a view? yes
+```
 
 ### Create Component
 

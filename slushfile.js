@@ -10,5 +10,4 @@
 
 require('./app');
 require('./component');
-
-
+require('./library');
