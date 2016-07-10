@@ -16,7 +16,6 @@ $ npm install -g slush-xfuse
 - Create component
 
 ### Create App
-
 Create a new folder for your project:
 
 ```bash
@@ -100,8 +99,16 @@ Generates the following project files:
 - bigpanel_include.unoproj
 ```
 
+See this list of [community packages](https://www.fusetools.com/docs/packages). A package is a library.
+
 ### Create Component
-To create components for your app.
+Fuse encourages breaking your app into components (classes) for several reasons:
+
+Good practice. Component-orientation keeps your code base clean, testable, scaleable and easy to maintain.
+Reuse. It is useful to create components to allow reusing pieces of UI and logic in multiple places.
+Styling. Creating new classes based on primitives is the recommended way to create a consistent look and feel throughout your project.
+
+To [create components](https://www.fusetools.com/docs/basics/creating-components) for your app:
 
 ```bash
 $ slush xfuse:component
