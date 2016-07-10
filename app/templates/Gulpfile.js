@@ -12,7 +12,7 @@ var isWatching = false;
 gulp.task("default", () => {
   let stream = rollup({
     entry: "js/src/app.js",
-format: "cjs",
+    format: "cjs",
     plugins: [
       babel({
         presets: ["es2015-rollup"]
@@ -29,7 +29,7 @@ format: "cjs",
 
 gulp.task("watch", () => gulp.watch(["js/src/", "js/src/**/*.js"], ['default']));
 
-<% if (useTs) { %>
+<% if (srcType === 'ts') { %>
 var ts = require("gulp-typescript");
 var tsProject = ts.createProject("ts/tsconfig.json");
 

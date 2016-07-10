@@ -32,7 +32,6 @@ gulp.task('default', function (done) {
                     done();
                 });
 
-            var srcType = answers.useTs ? 'ts' : 'js';
             var dir = __dirname + '/' + srcType + '/**';
             gulp.src(dir)
                 .pipe(template(answers))

@@ -59,10 +59,11 @@ module.exports = [{
     message: 'What is the github username?',
     default: defaults.userName
 }, {
-    name: 'useTs',
-    type: 'confirm',
-    message: 'Will you use TypeScript?',
-    default: false
+    name: 'srcType',
+    type: 'list',
+    message: 'Which language will you use?',
+    default: 'js',
+    choices: ['js', 'ts', 'cljs']
 }, {
     type: 'confirm',
     name: 'moveon',

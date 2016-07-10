@@ -1,6 +1,8 @@
 # slush-xfuse [![Build Status](https://secure.travis-ci.org/kristianmandrup/slush-xfuse.png?branch=master)](https://travis-ci.org/kristianmandrup/slush-xfuse) [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-xfuse.png)](http://badges.enytc.com/for/npm/slush-xfuse)
 
-Generate a [Fuse](https://www.fusetools.com) app with Gulp, Rollup, Babel an optional TypeScript integration built in.
+Generate a [Fuse](https://www.fusetools.com) app with Gulp, Rollup, Babel.
+
+The generator also has optional TypeScript & ClojureScript integration built in.
 
 ## Getting Started
 Install `slush-xfuse` globally:
@@ -30,7 +32,7 @@ $ slush xfuse
 
 What is the name of your app? my-app
 ...
-Will you use TypeScript?
+Which language will you use?
 ```
 
 The following file structure is then created:
@@ -43,14 +45,20 @@ package.json
 README.md
 ```
 
-If TypeScript was not selected, `.js` files are generated.
+### JavaScript
 
+```bash
 js/src/
   - app.js
   - api.js
+```
 
+The files in `js/src` are the source files to be used by the app. The gulp task will compile the source files to ES5 javascript in `/dist` on any modification.
 
-If TypeScript was selected, `.ts` files and configuration are generated.
+- `gulp` (default) - compile ES6
+- `gulp watch` - watch `/js/src` for changes and compile ES6 to ES5 in `/dist`
+
+### TypeScript
 
 ```bash
 ts/
@@ -60,12 +68,6 @@ ts/
   tsconfig.json
 ```
 
-The files in `js/src` are the source files to be used by the app. The gulp task will compile the source files to ES5 javascript in `/dist` on any modification.
-
-- `gulp` (default) - compile ES6
-- `gulp watch` - watch `/js/src` for changes and compile ES6 to ES5 in `/dist`
-
-### TypeScript
 TypeScript support has been added as per the [TypeScript Gulp guide](http://www.typescriptlang.org/docs/handbook/gulp.html)
 
 Start by making sure you have installed TypeScript globally
@@ -81,7 +83,28 @@ Using this approach you can mix and match javascript in `js/src` with typescript
 
 Note: Typescript can directly include `.js` files if needed.
 
-### Serving data
+### ClojureScript
+
+*Experimental*
+
+First [install leinigen](http://leiningen.org/)
+
+```bash
+cljs/
+  src/
+    /app
+      - core.cljs
+  project.clj
+```
+
+ClojureScript is by default set up with [lein-figwheel](https://github.com/bhauman/lein-figwheel/wiki/Quick-Start)
+to allow for a fluid workflow with automatic browser updates
+
+`core.cljs` exports a `hello` variable that is accessible from within the Fuse app.
+
+Use `lein figwheel`
+
+## Serving data
 The `app.js` file exports an `api` variable by default, which references the API Object in `api.js`.
 
 You can call `api.getData()` to return data served to the app, such as from a remote server via a socket connection or HTTP requests etc.
