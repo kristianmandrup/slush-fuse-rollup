@@ -55,30 +55,20 @@ The files in `/src` are the source files to be used by the app. The gulp task wi
 ### TypeScript
 TypeScript support has been added as per the [TypeScript Gulp guide](http://www.typescriptlang.org/docs/handbook/gulp.html)
 
-Start by making sure you have installed TypeScript and Gulp CLI globally
+Start by making sure you have installed TypeScript globally
 
-`$ npm install -g typescript gulp-cli`
+`$ npm install -g typescript`
 
 TypeScript can then be used follows:
-- `gulp ts` - compile TypeScript from `/ts` to `/src`
-- `gulp watch-ts` - watch `/ts` for changes and compile to `/src`
+- `gulp ts` - compile TypeScript from `/ts-src` to `/src`
+- `gulp watch-ts` - watch `/ts-src` for changes and compile to `/src`
 
-### Manual steps
+`tsconfig.json` can be used to configure TypeScript compilation. By default it is set to: `"target": "es5"`
+Using this approach you can mix and match javascript in `/src` with typescript files in `/ts` seamlessly.
 
-First rename `/src` folder to `/ts-src`
-
-`$ mv src ts-src`
-
-Rename `.js` files in new `/ts-src` folder to `.ts`.
-
-`$ find ts-src/*.js -iname "*.js" -exec bash -c 'mv "$0" "${0%\.js}.ts"' {} \;`
-
-*TODO: This should be automated!*
-
-Using this approach you can mix and match javascript in `/src` with typescript files in `/ts` seamlessly. Note: Typescript can now also directly include `.js` files.
+Note: Typescript can now also directly include `.js` files.
 
 ### Serving data
-
 The `app.js` file exports a `server` variable by default, which references the Object exported by `server.js`.
 
 You can call `server.api.getData()` to return data served to the app, such as from a remote server via a socket connection or HTTP requests etc.
@@ -86,12 +76,20 @@ You can call `server.api.getData()` to return data served to the app, such as fr
 Hint: Customize the `server.api` Object to best suite your app!
 
 ### Create Library
+You can extract pieces of your application as libraries that can be reused across different apps.
+Use the `fuse-rollup:library` generator to create a [fusepm](https://github.com/bolav/fusepm) compatible library.
+FusePM is a (community driven) package manager for Fuse.
 
 ```bash
 $ slush fuse-rollup:library
 $ What is the name of your library? BigPanel
 $ What is the description? A very big panel
 $ Does the library have a view? yes
+
+Generates the following project files:
+
+- BigPanel.ux
+- bigpanel_include.unoproj
 ```
 
 ### Create Component
@@ -108,8 +106,8 @@ The following file structure is created
 ```bash
 
 components/
-    - BigPanelView.ux
-    - BigPanelModel.js
+    - BigPanel.ux
+    - BigPanel.js
 ```
 
 The View will be auto-linked to the Model via:

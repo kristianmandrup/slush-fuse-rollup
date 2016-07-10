@@ -29,6 +29,7 @@ format: "cjs",
 
 gulp.task("watch", () => gulp.watch(["src/", "src/**/*.js"], ['default']));
 
+<% if (useTs) { %>
 var ts = require("gulp-typescript");
 var tsProject = ts.createProject("tsconfig.json");
 
@@ -39,3 +40,4 @@ gulp.task("ts", function () {
 });
 
 gulp.task("watch-ts", () => gulp.watch(["ts-src/", "ts-src/**/*.ts"], ['ts']));
+<% } %>

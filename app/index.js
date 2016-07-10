@@ -31,5 +31,17 @@ gulp.task('default', function (done) {
                 .on('end', function () {
                     done();
                 });
+
+            var ts = answers.useTs ? 'ts-' : '';
+            var dest = ts + 'src';
+            var dir = __dirname + '/source/' + dest + '/**';
+            gulp.src(dir)
+                .pipe(template(answers))
+                .pipe(conflict('./' + dest))
+                .pipe(gulp.dest('./' + dest))
+                .pipe(install())
+                .on('end', function () {
+                    done();
+                });
         });
 });
