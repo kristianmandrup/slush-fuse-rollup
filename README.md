@@ -1,8 +1,12 @@
 # slush-xfuse [![Build Status](https://secure.travis-ci.org/kristianmandrup/slush-xfuse.png?branch=master)](https://travis-ci.org/kristianmandrup/slush-xfuse) [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-xfuse.png)](http://badges.enytc.com/for/npm/slush-xfuse)
 
-Generate a [Fuse](https://www.fusetools.com) app with Gulp, Rollup, Babel.
-
-The generator also has optional TypeScript & ClojureScript integration built in.
+Generate a [Fuse](https://www.fusetools.com) project with:
+ - [Gulp](http://gulpjs.com/)
+ - [Babel](https://babeljs.io/)
+ - [Rollup.js](http://rollupjs.org/)
+ - [FontAwesome](http://fontawesome.io/)
+ - [TypeScript (optional)](http://typescriptlang.org/)
+ - [ClojureScript (optional)](https://github.com/clojure/clojurescript)
 
 ## Getting Started
 Install `slush-xfuse` globally:
@@ -11,23 +15,24 @@ Install `slush-xfuse` globally:
 $ npm install -g slush-xfuse
 ```
 
-## Usage examples
+## Generators available
+XFuse comes with the following generators:
 
-- Create app
-- Create (fusepm) library
-- Create component
+- Create project (default)
+- Create (fusepm) library > `:library`
+- Create component > `:component`
 
-### Create App
+### Create Project
 Create a new folder for your project:
 
 ```bash
-$ mkdir my-fuse-app
+$ mkdir my-app
 ```
 
 Run the generator from within the new folder:
 
 ```bash
-$ cd my-fuse-app
+$ cd my-app
 $ slush xfuse
 
 What is the name of your app? my-app
