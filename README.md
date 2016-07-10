@@ -1,7 +1,8 @@
 # slush-xfuse [![Build Status](https://secure.travis-ci.org/kristianmandrup/slush-xfuse.png?branch=master)](https://travis-ci.org/kristianmandrup/slush-xfuse) [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-xfuse.png)](http://badges.enytc.com/for/npm/slush-xfuse)
 
-## Getting Started
+Generate a [Fuse](https://www.fusetools.com) app with Gulp, Rollup, Babel an optional TypeScript integration built in.
 
+## Getting Started
 Install `slush-xfuse` globally:
 
 ```bash
