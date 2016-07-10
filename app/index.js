@@ -32,13 +32,12 @@ gulp.task('default', function (done) {
                     done();
                 });
 
-            var ts = answers.useTs ? 'ts-' : '';
-            var dest = ts + 'src';
-            var dir = __dirname + '/source/' + dest + '/**';
+            var srcType = answers.useTs ? 'ts' : 'js';
+            var dir = __dirname + '/' + srcType + '/**';
             gulp.src(dir)
                 .pipe(template(answers))
-                .pipe(conflict('./' + dest))
-                .pipe(gulp.dest('./' + dest))
+                .pipe(conflict('./' + srcType))
+                .pipe(gulp.dest('./' + srcType))
                 .pipe(install())
                 .on('end', function () {
                     done();

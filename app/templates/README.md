@@ -7,6 +7,43 @@ This [Fuse](https://www.fusetools.com/) project is configured with [Gulp](http:/
 3. Clone this repo: `git clone https://github.com/kristianmandrup/slush-fuse-rollup.git`
 4. Inside the project folder, run `npm install` to fetch dependencies.
 
+## Project file structure
+The project is structured as follows:
+
+```bash
+- assets
+  - fonts
+    - Roboto.ttf
+  - images
+    - blue_skies.png
+  - videos
+    - intro.mp4
+- pages
+  - Login.ux
+  - Login.js
+- App.unoproj
+- App.ux
+- Gulpfile.js
+```
+
+## Javascript project
+
+```bash
+- src
+  - app.js
+  - api.js
+```
+
+## TypeScript project
+
+```bash
+- /ts
+    - /src
+      - app.ts
+      - api.ts
+    - tsconfig.json
+```
+
 ## Watch and rollup app.js
 Run `gulp watch` to watch for changes to files in the `/src` folder.
 When a change occurs, rollup and babel will run, and your transpiled, concatenated JS file will end up as `dist/app.js`. This will in turn trigger an update in the Fuse preview simulator if it's running.
@@ -45,7 +82,7 @@ Hint: Customize the `server.api` Object to best suite your app!
 ## Create components
 To create components for your app use the `component` generator.
 
-`$ slush xfuse:component` 
+`$ slush xfuse:component`
 
 ## Install Fuse modules
 

@@ -1,6 +1,6 @@
 {
     "files": [
-        "ts-src/app.ts"
+        "ts/src/app.ts"
     ],
     "compilerOptions": {
         "noImplicitAny": true,

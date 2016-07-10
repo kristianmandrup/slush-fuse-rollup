@@ -11,7 +11,7 @@ var isWatching = false;
 // Compile js/app.js to /dist/app.js
 gulp.task("default", () => {
   let stream = rollup({
-    entry: "src/app.js",
+    entry: "js/src/app.js",
 format: "cjs",
     plugins: [
       babel({
@@ -27,17 +27,17 @@ format: "cjs",
   .pipe(gulp.dest("dist"))
 });
 
-gulp.task("watch", () => gulp.watch(["src/", "src/**/*.js"], ['default']));
+gulp.task("watch", () => gulp.watch(["js/src/", "js/src/**/*.js"], ['default']));
 
 <% if (useTs) { %>
 var ts = require("gulp-typescript");
-var tsProject = ts.createProject("tsconfig.json");
+var tsProject = ts.createProject("ts/tsconfig.json");
 
 gulp.task("ts", function () {
     return tsProject.src()
       .pipe(ts(tsProject))
-      .js.pipe(gulp.dest("src"));
+      .js.pipe(gulp.dest("js/src"));
 });
 
-gulp.task("watch-ts", () => gulp.watch(["ts-src/", "ts-src/**/*.ts"], ['ts']));
+gulp.task("watch-ts", () => gulp.watch(["ts/src", "ts/src/**/*.ts"], ['ts']));
 <% } %>

@@ -36,9 +36,6 @@ Will you use TypeScript?
 The following file structure is then created:
 
 ```bash
-src/
-  - app.js
-  - server.js
 App.unoproj
 Gulpfile.js
 App.ux
@@ -46,18 +43,27 @@ package.json
 README.md
 ```
 
-If TypeScript was selected
+If TypeScript was not selected, `.js` files are generated.
+
+js/src/
+  - app.js
+  - api.js
+
+
+If TypeScript was selected, `.ts` files and configuration are generated.
 
 ```bash
-ts-src/
-  - app.ts
-  - server.ts
+ts/
+  src/
+    - app.ts
+    - api.ts
+  tsconfig.json
 ```
 
-The files in `/src` are the source files to be used by the app. The gulp task will compile the `/src` files to ES5 compatible javascript in `/dist` on any modification.
+The files in `js/src` are the source files to be used by the app. The gulp task will compile the source files to ES5 javascript in `/dist` on any modification.
 
 - `gulp` (default) - compile ES6
-- `gulp watch` - watch `/src` for changes and compile ES6 to ES5 in `/dist`
+- `gulp watch` - watch `/js/src` for changes and compile ES6 to ES5 in `/dist`
 
 ### TypeScript
 TypeScript support has been added as per the [TypeScript Gulp guide](http://www.typescriptlang.org/docs/handbook/gulp.html)
@@ -67,20 +73,20 @@ Start by making sure you have installed TypeScript globally
 `$ npm install -g typescript`
 
 TypeScript can then be used follows:
-- `gulp ts` - compile TypeScript from `/ts-src` to `/src`
-- `gulp watch-ts` - watch `/ts-src` for changes and compile to `/src`
+- `gulp ts` - compile TypeScript from `/ts/src` to `js/src`
+- `gulp watch-ts` - watch `/ts/src` for changes and compile to ES5 in `js/src`
 
-`tsconfig.json` can be used to configure TypeScript compilation. By default it is set to: `"target": "es5"`
-Using this approach you can mix and match javascript in `/src` with typescript files in `/ts` seamlessly.
+`tsconfig.json` can be used to configure TypeScript compilation. By default it is set to: `"target": "es5"`.
+Using this approach you can mix and match javascript in `js/src` with typescript files in `/ts/src` seamlessly.
 
-Note: Typescript can now also directly include `.js` files.
+Note: Typescript can directly include `.js` files if needed.
 
 ### Serving data
-The `app.js` file exports a `server` variable by default, which references the Object exported by `server.js`.
+The `app.js` file exports an `api` variable by default, which references the API Object in `api.js`.
 
-You can call `server.api.getData()` to return data served to the app, such as from a remote server via a socket connection or HTTP requests etc.
+You can call `api.getData()` to return data served to the app, such as from a remote server via a socket connection or HTTP requests etc.
 
-Hint: Customize the `server.api` Object to best suite your app!
+Hint: Customize the API Object to best suite your app!
 
 ### Create Library
 You can extract pieces of your application as libraries that can be reused across different apps.
