@@ -1,7 +1,7 @@
 {
     "name": "slush-xfuse",
     "description": "Fuse project generator with Gulp, Rollup, Babel and TypeScript support",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "homepage": "https://github.com/kristianmandrup/slush-xfuse",
     "author": {
         "name": "Kristian Mandrup",

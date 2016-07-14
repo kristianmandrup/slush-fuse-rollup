@@ -8,10 +8,11 @@ const babel = require("rollup-plugin-babel");
 
 var isWatching = false;
 
-// Compile js/app.js to /dist/app.js
+// Compile js/src/app.js to /dist/app.js
 gulp.task("default", () => {
   let stream = rollup({
-    entry: "js/src/app.js",
+    entry: "./js/src/app.js",
+    sourceMap: true,
     format: "cjs",
     plugins: [
       babel({
@@ -23,8 +24,24 @@ gulp.task("default", () => {
       console.error(`${e.stack}`)
       stream.emit('end')
   })
-  .pipe(source("app.js"))
-  .pipe(gulp.dest("dist"))
+
+  // point to the entry file.
+  .pipe(source('app.js', './js/src'))
+
+  // buffer the output. most gulp plugins, including gulp-sourcemaps, don't support streams.
+  .pipe(buffer())
+
+  // tell gulp-sourcemaps to load the inline sourcemap produced by rollup-stream.
+  .pipe(sourcemaps.init({loadMaps: true}))
+
+      // transform the code further here.
+
+  // if you want to output with a different name from the input file, use gulp-rename here.
+  //.pipe(rename('index.js'))
+
+  // write the sourcemap alongside the output file.
+  .pipe(sourcemaps.write('.'))
+  .pipe(gulp.dest('./dist'))
 });
 
 gulp.task("watch", () => gulp.watch(["js/src/", "js/src/**/*.js"], ['default']));
