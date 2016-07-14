@@ -43,9 +43,9 @@ Which language will you use?
 The following file structure is then created:
 
 ```bash
-App.unoproj
+my-app.unoproj
+MyApp.ux
 Gulpfile.js
-App.ux
 package.json
 README.md
 ```

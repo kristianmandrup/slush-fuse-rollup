@@ -19,12 +19,25 @@ gulp.task('default', function (done) {
             var srcType = answers.srcType;
             answers.e = {};
             answers.appNameSlug = _.slugify(answers.appName);
+            answers.className = _.camelize(answers.appNameSlug);
+            console.log('answers', answers);
+
             gulp.src(__dirname + '/templates/**')
                 .pipe(template(answers))
                 .pipe(rename(function (file) {
+                    console.log('file', file);
                     if (file.basename[0] === '_') {
                         file.basename = '.' + file.basename.slice(1);
                     }
+
+                    if (file.basename.match(/App/) ) {
+                        file.basename = answers.appNameSlug;
+                    }
+
+                    if (file.extname === '.ux') {
+                        file.basename = _.classify(file.basename);
+                    }
+                    console.log('renamed', file);
                 }))
                 .pipe(conflict('./'))
                 .pipe(gulp.dest('./'))

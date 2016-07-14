@@ -1,4 +1,4 @@
-# <%= appName %>
+# <%= appNameSlug %>
 This [Fuse](https://www.fusetools.com/) project is configured with [Gulp](http://gulpjs.com/), [Rollup](http://rollupjs.org/) and [Babel](https://babeljs.io/) into your  workflow, allowing you to use ES2015+ features in your Fuse app.
 
 ## Project file structure
@@ -12,8 +12,8 @@ The project is structured as follows:
     /videos
 - /pages
 - .gitignore
-- App.unoproj
-- App.ux
+- <%= appNameSlug %>.unoproj
+- <%= appNameSlug.toUpperCase() %>.ux
 - Gulpfile.js
 - LICENSE
 - package.json
