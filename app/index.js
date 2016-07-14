@@ -16,6 +16,7 @@ gulp.task('default', function (done) {
             if (!answers.moveon) {
                 return done();
             }
+            var srcType = answers.srcType;
             answers.e = {};
             answers.appNameSlug = _.slugify(answers.appName);
             gulp.src(__dirname + '/templates/**')

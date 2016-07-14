@@ -1,49 +1,43 @@
-# slush-xfuse
+# <%= appName %>
 This [Fuse](https://www.fusetools.com/) project is configured with [Gulp](http://gulpjs.com/), [Rollup](http://rollupjs.org/) and [Babel](https://babeljs.io/) into your  workflow, allowing you to use ES2015+ features in your Fuse app.
-
-## Prerequisites
-1. Install [Node.js and npm](https://nodejs.org/en/) if you haven't already.
-2. Install gulp globally: `npm install -g gulp`
-3. Clone this repo: `git clone https://github.com/kristianmandrup/slush-fuse-rollup.git`
-4. Inside the project folder, run `npm install` to fetch dependencies.
 
 ## Project file structure
 The project is structured as follows:
 
 ```bash
-- assets
-  - fonts
-    - Roboto.ttf
-  - images
-    - blue_skies.png
-  - videos
-    - intro.mp4
-- pages
-  - Login.ux
-  - Login.js
+- /assets
+    /fonts
+    - FontAwesome.otf
+    /images
+    /videos
+- /pages
+- .gitignore
 - App.unoproj
 - App.ux
 - Gulpfile.js
+- LICENSE
+- package.json
+- README.md
 ```
-
+<% if (srcType === 'js') { %>
 ## Javascript project
-
 ```bash
-- src
-  - app.js
-  - api.js
+- /js
+    /src
+    - app.js
+    - api.js
 ```
-
+<% } %>
+<% if (srcType === 'ts') { %>
 ## TypeScript project
-
 ```bash
 - /ts
-    - /src
+    /src
       - app.ts
       - api.ts
-    - tsconfig.json
+      - tsconfig.json
 ```
-
+<% } %>
 ## Watch and rollup app.js
 Run `gulp watch` to watch for changes to files in the `/src` folder.
 When a change occurs, rollup and babel will run, and your transpiled, concatenated JS file will end up as `dist/app.js`. This will in turn trigger an update in the Fuse preview simulator if it's running.
@@ -59,6 +53,7 @@ The files in `/src` are the source files to be used by the app. The gulp task wi
 - `gulp` (default) - compile ES6 via Babel
 - `gulp watch` - watch `/src` for changes and compile ES6 to ES5 in `/dist`
 
+<% if (srcType === 'ts') { %>
 ### TypeScript
 TypeScript support has been added as per the [TypeScript Gulp guide](http://www.typescriptlang.org/docs/handbook/gulp.html)
 
@@ -66,10 +61,10 @@ Start by making sure you have installed TypeScript and Gulp CLI globally
 
 `$ npm install -g typescript gulp-cli`
 
-TypeScript can then be used follows:
+TypeScript can be used follows:
 - `gulp ts` - compile TypeScript from `/ts` to `/src`
 - `gulp watch-ts` - watch `/ts` for changes and compile to `/src`
-
+<% } %>
 ### Serving data
 The `app.js` file exports a `server` variable which references the Object exported by `server.js`.
 
@@ -85,7 +80,6 @@ To create components for your app use the `component` generator.
 `$ slush xfuse:component`
 
 ## Install Fuse modules
-
 Use [fusepm](https://github.com/kristianmandrup/fusepm) to install fuse modules (libraries):
 
 ```bash
