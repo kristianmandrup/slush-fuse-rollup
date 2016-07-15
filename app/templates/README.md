@@ -7,7 +7,6 @@ The project is structured as follows:
 ```bash
 - /assets
     /fonts
-    - FontAwesome.otf
     /images
     /videos
 - /pages
@@ -85,6 +84,18 @@ Use [fusepm](https://github.com/kristianmandrup/fusepm) to install fuse modules 
 ```bash
 $ fusepm list
 $ fusepm install <module>
+```
+
+### FontAwesome
+
+See [fuse-fontawesome](https://github.com/danmademe/fuse-fontawesome)
+
+`fusepm install fontawesome`
+
+Then in a UX view:
+
+```
+<fa-check Color="#000" />
 ```
 
 ## License
