@@ -20,7 +20,6 @@ gulp.task('default', function (done) {
             answers.e = {};
             answers.appNameSlug = _.slugify(answers.appName);
             answers.className = _.camelize(answers.appNameSlug);
-            console.log('answers', answers);
 
             gulp.src(__dirname + '/templates/**')
                 .pipe(template(answers))
@@ -37,7 +36,6 @@ gulp.task('default', function (done) {
                     if (file.extname === '.ux') {
                         file.basename = _.classify(file.basename);
                     }
-                    console.log('renamed', file);
                 }))
                 .pipe(conflict('./'))
                 .pipe(gulp.dest('./'))
