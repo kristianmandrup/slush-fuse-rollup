@@ -1,5 +1,7 @@
 # slush-xfuse [![Build Status](https://secure.travis-ci.org/kristianmandrup/slush-xfuse.png?branch=master)](https://travis-ci.org/kristianmandrup/slush-xfuse) [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-xfuse.png)](http://badges.enytc.com/for/npm/slush-xfuse)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/kristianmandrup/slush-xfuse.svg)](https://greenkeeper.io/)
+
 Generate a [Fuse](https://www.fusetools.com) project with:
  - [Gulp](http://gulpjs.com/)
  - [Babel](https://babeljs.io/)
